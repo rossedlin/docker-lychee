@@ -1,0 +1,21 @@
+version: '3.1'
+services:
+  web:
+    image: rossedlin/lychee:latest
+    ports:
+      - "80:80"
+    volumes:
+      - www:/var/www
+
+  db:
+    image: mysql:5.7
+    ports:
+     - "3306:3306"
+    env_file:
+     - .env
+    volumes:
+      - database:/var/lib/mysql
+
+volumes:
+  www:
+  database:
